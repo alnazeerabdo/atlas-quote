@@ -1,0 +1,273 @@
+<!-- ========= Atlas | عرض سعر تقريبي — الصق الكود كاملاً في عنصر "HTML" داخل Elementor ========= -->
+<div class="atq" id="atq" dir="rtl">
+<style>
+.atq{--g:#daa648;--gd:#8a6212;--g2:#fbf3e1;--ink:#2a2418;--mut:#665e4e;--line:#e6dcc6;max-width:920px;margin:0 auto;padding:8px 0 140px;color:var(--ink);font-family:inherit;line-height:1.7;text-align:right}
+.atq *{box-sizing:border-box}
+.atq h1{margin:0 0 10px;font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.35;color:var(--ink);font-family:inherit;padding-right:16px;border-right:6px solid var(--g)}
+.atq h2{margin:0 0 4px;font-size:1.25rem;color:var(--ink);font-family:inherit}
+.atq h3{margin:22px 0 4px;font-size:1rem;color:var(--gd);font-family:inherit}
+.atq .lead{margin:0 0 22px;color:var(--mut);font-size:1.02rem}
+.atq .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:20px}
+.atq .sub{margin:0 0 18px;color:var(--mut);font-size:.93rem}
+.atq .notes{background:var(--g2);border:1px solid var(--g);border-radius:14px;padding:18px 22px;margin-bottom:20px}
+.atq .notes h2{font-size:1.05rem;margin-bottom:8px}
+.atq .notes ul{margin:0;padding:0 18px 0 0;font-size:.94rem}
+.atq .notes li{margin:3px 0}
+.atq .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.atq .f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.93rem}
+.atq .in{width:100%;min-height:44px;padding:8px 12px;border:1px solid #cdbf9f;border-radius:8px;background:#fff;color:var(--ink);font:inherit;font-weight:400}
+.atq .in:disabled{background-color:#f3efe4;color:#9a917c}
+.atq .in:focus-visible,.atq button:focus-visible,.atq .seg input:focus-visible+span,.atq .it input[type=checkbox]:focus-visible{outline:3px solid var(--gd);outline-offset:2px}
+.atq .seg{display:flex;gap:8px}
+.atq .seg label{flex:1;margin:0}
+.atq .seg input{position:absolute;opacity:0}
+.atq .seg span{display:block;text-align:center;padding:10px;border:1px solid #cdbf9f;border-radius:8px;cursor:pointer;font-weight:600}
+.atq .seg input:checked+span{background:var(--g);border-color:var(--g);color:var(--ink)}
+.atq .full{grid-column:1/-1}
+.atq .hide{display:none!important}
+.atq .it{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--line)}
+.atq .it input[type=checkbox]{flex:none;width:22px;height:22px;margin:0;accent-color:var(--g);cursor:pointer}
+.atq .it input[type=checkbox]:disabled{cursor:default;opacity:.8}
+.atq .nm{flex:1 1 0;min-width:0;margin:0;cursor:pointer}
+.atq .nm b{display:block;font-size:.98rem}
+.atq .nm small{display:block;color:var(--mut);font-size:.85rem;line-height:1.5;margin-top:2px}
+.atq .ctl{flex:none;display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;min-width:120px;font-weight:700;font-size:.92rem;white-space:nowrap}
+.atq .ctl .in{min-height:42px;padding:4px 10px;width:auto;max-width:150px}
+.atq select.in{-webkit-appearance:none;appearance:none;min-width:126px;padding:4px 12px 4px 36px;border:1.5px solid #e0cfa4;border-radius:10px;background:#fffdf8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%238a6212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat left 13px center;color:var(--ink);font-weight:700;font-size:.92rem;cursor:pointer;transition:border-color .15s,box-shadow .15s,background-color .15s}
+.atq select.in:hover:not(:disabled){border-color:var(--g);background-color:var(--g2)}
+.atq select.in:focus{border-color:var(--gd);box-shadow:0 0 0 3px rgba(218,166,72,.35);outline:0}
+.atq select.in:disabled{cursor:not-allowed;background-color:#f3efe4;color:#9a917c;border-color:#e6dcc6}
+.atq select.in option{font-weight:600;color:#2a2418;background:#fff}
+.atq .cv{display:flex;gap:6px;align-items:center}
+.atq .mo{font-size:.72rem;font-weight:500;color:var(--mut);line-height:1.2}
+.atq .status{margin-top:14px;font-weight:600}
+.atq .status.err{color:#b3261e}.atq .status.ok{color:var(--gd)}
+.atq #mgrC{white-space:normal;line-height:1.4;max-width:150px}
+.atq .ctl .bill{width:72px;max-width:none;padding:4px 6px}
+.atq .it.off .nm b{color:var(--mut)}
+.atq .it.off .ctl{opacity:.5}
+.atq .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 26px;border-radius:8px;border:0;background:var(--g);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}
+.atq .btn:hover{filter:brightness(.95)}
+.atq .bar{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(740px,calc(100% - 20px));z-index:9999;background:rgba(36,30,19,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(218,166,72,.4);border-radius:20px;padding:10px 14px 12px;color:#fff;box-shadow:0 12px 36px rgba(0,0,0,.28)}
+.atq .q-cap{margin:0 4px 6px;font-size:.76rem;color:#d8cdb2;line-height:1.4}
+.atq .q-cap.err{color:#ffb4a9;font-weight:700}.atq .q-cap.ok{color:var(--g);font-weight:700}
+.atq .q-row{display:flex;align-items:center;gap:10px}
+.atq .q-stat{flex:1;min-width:0;padding:0 4px;text-align:center}
+.atq .q-stat+.q-stat{border-right:1px solid rgba(255,255,255,.18);padding-right:14px}
+.atq .q-stat span{display:block;font-size:.76rem;color:#d8cdb2}
+.atq .q-stat b{font-size:clamp(1.1rem,4.8vw,1.55rem);line-height:1.2;color:var(--g);font-variant-numeric:tabular-nums}
+.atq .q-stat small{font-size:.72rem;color:#d8cdb2;margin-right:4px}
+@media(max-width:600px){
+ .atq .card{padding:16px}.atq .grid{grid-template-columns:1fr}
+ .atq .it{gap:8px}.atq .ctl{min-width:0;font-size:.85rem}
+ .atq .ctl .in{max-width:112px}
+ .atq select.in{min-width:0;padding-left:30px;background-position:left 10px center}
+ .atq .bar{padding:9px 12px 11px}.atq .q-stat+.q-stat{padding-right:10px}
+ .atq .it.wide{flex-wrap:wrap}.atq .it.wide .ctl{flex-basis:100%;padding-right:30px;align-items:stretch}.atq .it.wide .cv{width:100%}
+ .atq .it.wide .ctl .bill{flex:1;width:auto;min-width:0}
+}
+</style>
+
+<!-- العنوان -->
+<h1>احسب عرض السعر التقريبي لإدارة مبناك</h1>
+<p class="lead">أجب عن أسئلة بسيطة عن المبنى، واختر البنود التي تناسبك، وسيظهر لك تقدير مبدئي لتكلفة إدارة اتحاد الملاك شهرياً وسنوياً.</p>
+
+<!-- الملاحظات -->
+<section class="notes">
+  <h2>ملاحظات قبل البدء</h2>
+  <ul>
+    <li>هذا عرض سعر تقريبي ومبدئي، يساعدك ويساعدنا على فهم احتياجات المبنى.</li>
+    <li>العرض الأساسي يُعدّ بعد تقييم العقار وفهم احتياجاته، وقد تختلف الأسعار عنه.</li>
+  </ul>
+</section>
+
+<!-- بيانات المبنى -->
+<section class="card">
+  <h2>بيانات المبنى</h2>
+  <p class="sub">تساعدنا هذه البيانات على فهم مبناك وحساب بعض البنود تلقائياً.</p>
+  <div class="grid">
+    <label class="f">اسم المبنى<input class="in" id="bname" type="text" autocomplete="off"></label>
+    <label class="f">رقم التواصل<input class="in" id="phone" type="tel" inputmode="tel" placeholder="05xxxxxxxx" autocomplete="tel"></label>
+    <label class="f">عدد الوحدات<input class="in" id="units" type="number" min="1" max="1000" inputmode="numeric"></label>
+    <label class="f">عمر المبنى (بالسنوات)<input class="in" id="age" type="number" min="0" max="100" inputmode="numeric"></label>
+    <label class="f">الحي<input class="in" id="district" type="text" autocomplete="off"></label>
+    <label class="f">عدد المصاعد<input class="in" id="elevs" type="number" min="0" max="20" value="0" inputmode="numeric"></label>
+    <div class="f">هل يوجد عقد صيانة مصاعد؟
+      <div class="seg"><label><input type="radio" name="elc" value="yes"><span>نعم</span></label><label><input type="radio" name="elc" value="no" checked><span>لا</span></label></div>
+    </div>
+    <div class="f">هل يوجد غاز مركزي؟
+      <div class="seg"><label><input type="radio" name="gas" value="yes"><span>نعم</span></label><label><input type="radio" name="gas" value="no" checked><span>لا</span></label></div>
+    </div>
+    <label class="f full hide" id="gasWrap">مبلغ آخر فاتورة غاز (ريال)<input class="in" id="gasBill" type="number" min="0" inputmode="decimal"></label>
+  </div>
+</section>
+
+<!-- البنود -->
+<section class="card">
+  <h2>بنود الإدارة</h2>
+  <p class="sub">البنود الأساسية مضافة تلقائياً. فعّل مربع الاختيار لأي بند إضافي تحتاجه.</p>
+  <h3>البنود الأساسية</h3>
+  <div id="req"></div>
+  <h3>بنود إضافية (اختيارية)</h3>
+  <div id="opt"></div>
+
+  <div style="margin-top:24px"><button type="button" class="btn" id="send">أرسل الطلب لفريق أطلس</button></div>
+  <div class="status" id="status" role="alert"></div>
+
+</section>
+
+<!-- الإجمالي الثابت أسفل الصفحة -->
+<div class="bar" role="region" aria-label="الإجمالي التقديري">
+  <p class="q-cap" id="cap" aria-live="polite">الإجمالي التقديري، ابتداءً من</p>
+  <div class="q-row">
+    <div class="q-stat"><span>شهرياً</span><b id="tm">0.00</b><small>ريال</small></div>
+    <div class="q-stat"><span>سنوياً</span><b id="ty">0.00</b><small>ريال</small></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ======= إعدادات يمكنك تعديلها ======= */
+  var CFG = {
+    whatsapp: '966115116069',   // رقم واتساب لاستقبال الطلب
+    endpoint: ''                // اختياري: رابط Webhook / REST لاستقبال الطلب بدلاً من واتساب
+  };
+  var GUARD=[1000,1200,1400,1600,1800,2000], MAINT=[200,400,600,800,1000], PREV=[150,300,500], SPRAYS=[1,2,3,4,6,12];
+  var ELEVS=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+  var ELEV_PRICE=192, SPRAY_PRICE=60, SCENT=150;
+  /* ====================================== */
+  var root=document.getElementById('atq');
+  var $=function(s){return root.querySelector(s)};
+  var $$=function(s){return Array.prototype.slice.call(root.querySelectorAll(s))};
+  var S={guard:1200,maint:200,prev:150,sprays:12,elevQty:1,touchedElev:false,
+         on:{mgr:1,guard:1,clean:1,maint:1,elec:1}};
+  var fmt=function(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})};
+  var rate=function(u){return u<16?115:(u>60?69:89)};
+  var val=function(n){return (root.querySelector('input[name='+n+']:checked')||{}).value};
+  var units=function(){return +$('#units').value||0};
+
+  function sel(key,arr,suf){
+    return '<select class="in" data-s="'+key+'" aria-label="الاختيار">'+arr.map(function(x){
+      return '<option value="'+x+'"'+(x==S[key]?' selected':'')+'>'+x+suf+'</option>'}).join('')+'</select>';
+  }
+  var ITEMS=[
+    {k:'mgr',r:1,n:'رسوم مدير العقار',note:'',ctl:'<span id="mgrC">يعتمد على عدد الوحدات</span>'},
+    {k:'guard',r:1,n:'راتب الحارس',note:'راتب الحارس يحدده الملاك حسب ما يرغبون بدفعه.',ctl:sel('guard',GUARD,' ريال')},
+    {k:'clean',r:1,n:'مواد وأدوات النظافة',min:1,note:'حد أدنى، وقد يزيد بعد تقييم المبنى.',ctl:'يبدأ من 120 ريال'},
+    {k:'maint',r:1,n:'أعمال الصيانة',note:'يُحدد المبلغ النهائي بعد تقييم حالة العقار.',ctl:sel('maint',MAINT,' ريال')},
+    {k:'elec',r:1,n:'الكهرباء',note:'قيمة الكهرباء تُحدد بناءً على آخر ٣ فواتير للمبنى، ولا تدخل في الإجمالي المبدئي. اكتب قيمة الفواتير إن توفرت (اختياري).',wide:1,
+      ctl:'<input class="in bill" type="number" min="0" inputmode="decimal" placeholder="فاتورة 1" aria-label="فاتورة كهرباء 1"><input class="in bill" type="number" min="0" inputmode="decimal" placeholder="فاتورة 2" aria-label="فاتورة كهرباء 2"><input class="in bill" type="number" min="0" inputmode="decimal" placeholder="فاتورة 3" aria-label="فاتورة كهرباء 3">'},
+    {k:'water',n:'الماء',min:1,note:'حد أدنى، وقد يزيد بعد تقييم المبنى.',ctl:'يبدأ من 70 ريال'},
+    {k:'cctv',n:'صيانة الأجهزة الرقابية',min:1,note:'حد أدنى، وقد يزيد بعد تقييم المبنى.',ctl:'يبدأ من 70 ريال'},
+    {k:'scent',n:'التعطير',note:'يشمل الجهاز والزيت، بسعر شهري ثابت.',ctl:'150 ريال'},
+    {k:'spray',n:'رش المبيدات',note:'60 ريال للرشة الواحدة. اختر عدد الرشات في السنة.',ctl:sel('sprays',SPRAYS,' رشة/سنة')},
+    {k:'elev',n:'عقد صيانة المصاعد',note:'192 ريال شهرياً لكل مصعد. اختر عدد المصاعد.',ctl:sel('elevQty',ELEVS,' مصعد')},
+    {k:'prev',n:'مبلغ وقائي',note:'اختر المبلغ الشهري.',ctl:sel('prev',PREV,' ريال')}
+  ];
+  var byK={}; ITEMS.forEach(function(i){byK[i.k]=i});
+
+  function amt(k){
+    switch(k){
+      case 'mgr': return units()*rate(units());
+      case 'guard': return S.guard;
+      case 'clean': return 120;
+      case 'maint': return S.maint;
+      case 'water': case 'cctv': return 70;
+      case 'scent': return SCENT;
+      case 'spray': return SPRAY_PRICE*S.sprays/12;
+      case 'elev': return ELEV_PRICE*S.elevQty;
+      case 'prev': return S.prev;
+    }
+    return 0;
+  }
+  function build(){
+    var h={1:'',0:''};
+    ITEMS.forEach(function(i){
+      var id='c_'+i.k;
+      h[i.r?1:0]+='<div class="it'+(i.r?'':' off')+(i.wide?' wide':'')+'" data-k="'+i.k+'">'+
+        '<input type="checkbox" id="'+id+'" data-c="'+i.k+'"'+(i.r?' checked disabled':'')+'>'+
+        '<label class="nm" for="'+id+'"><b>'+i.n+'</b>'+(i.note?'<small>'+i.note+'</small>':'')+'</label>'+
+        '<div class="ctl"><div class="cv">'+i.ctl+'</div>'+(i.k==='elec'?'':'<span class="mo" data-mo="'+i.k+'">شهرياً</span>')+'</div></div>';
+    });
+    $('#req').innerHTML=h[1]; $('#opt').innerHTML=h[0];
+    sync();
+  }
+  function sync(){
+    $$('.it').forEach(function(row){
+      var k=row.dataset.k, on=!!S.on[k];
+      row.classList.toggle('off',!on);
+      row.querySelector('[data-c]').checked=on;
+      Array.prototype.forEach.call(row.querySelectorAll('.ctl .in'),function(c){c.disabled=!on});
+    });
+    calc();
+  }
+  function calc(){
+    var u=units(), m=0;
+    $('#mgrC').textContent=u?fmt(u*rate(u))+' ريال':'يعتمد على عدد الوحدات';
+    ['spray','elev'].forEach(function(k){var e=$('[data-mo='+k+']');if(e)e.textContent=fmt(amt(k))+' ريال شهرياً'});
+    ITEMS.forEach(function(i){ if(S.on[i.k]) m+=amt(i.k) });
+    $('#tm').textContent=fmt(m); $('#ty').textContent=fmt(m*12);
+  }
+
+  root.addEventListener('change',function(e){
+    var t=e.target;
+    if(t.dataset.c){
+      S.on[t.dataset.c]=t.checked?1:0;
+      if(t.dataset.c==='elev') S.touchedElev=true;
+      sync(); return;
+    }
+    if(t.dataset.s){S[t.dataset.s]=+t.value;calc();return}
+    if(t.name==='gas'){$('#gasWrap').classList.toggle('hide',t.value!=='yes');return}
+    if(t.id==='elevs'||t.name==='elc'){
+      var n=+$('#elevs').value||0;
+      if(n>0){S.elevQty=Math.min(n,20);var q=$('[data-s=elevQty]');if(q)q.value=S.elevQty}
+      if(!S.touchedElev) S.on.elev=(n>0&&val('elc')==='no')?1:0;
+      sync();
+    }
+  });
+  root.addEventListener('input',function(e){if(e.target.id==='units')calc()});
+
+  /* إرسال */
+  function bills(){
+    return $$('[data-k=elec] .bill').map(function(i){return i.value.trim()}).filter(Boolean);
+  }
+  function msg(){
+    var L=['طلب عرض سعر تقريبي - اتحاد الملاك','',
+      'المبنى: '+$('#bname').value.trim(),'رقم التواصل: '+$('#phone').value.trim(),
+      'الحي: '+($('#district').value.trim()||'-'),'عدد الوحدات: '+units(),
+      'عمر المبنى: '+($('#age').value||'-')+' سنة','عدد المصاعد: '+($('#elevs').value||0),
+      'عقد مصاعد حالي: '+(val('elc')==='yes'?'نعم':'لا'),
+      'غاز مركزي: '+(val('gas')==='yes'?'نعم (آخر فاتورة: '+($('#gasBill').value||'غير محدد')+' ريال)':'لا'),'',
+      'البنود المختارة (شهرياً):'];
+    ITEMS.forEach(function(i){
+      if(!S.on[i.k]) return;
+      if(i.k==='elec'){var b=bills();L.push('- الكهرباء: '+(b.length?'قيم الفواتير: '+b.join(' / ')+' ريال':'لم تُدخل القيم'));return}
+      var extra=i.k==='spray'?' ('+S.sprays+' رشة/سنة)':i.k==='elev'?' ('+S.elevQty+' مصعد)':'';
+      L.push('- '+i.n+extra+': '+fmt(amt(i.k))+' ريال'+(i.min?' (يبدأ من)':''));
+    });
+    L.push('','الإجمالي التقديري (ابتداءً من): '+$('#tm').textContent+' شهرياً / '+$('#ty').textContent+' سنوياً');
+    return L.join('\n');
+  }
+  function say(t,c){var s=$('#status');s.textContent=t;s.className=('status '+(c||'')).trim()}
+  function bad(sel,m){say(m,'err');$(sel).focus()}
+  $('#send').addEventListener('click',function(){
+    var ph=$('#phone').value.replace(/[\s-]/g,'');
+    if(!$('#bname').value.trim()) return bad('#bname','اكتب اسم المبنى.');
+    if(!/^(05\d{8}|\+?9665\d{8})$/.test(ph)) return bad('#phone','رقم التواصل غير صحيح، مثال: 0501234567');
+    if(!(units()>0)) return bad('#units','أدخل عدد الوحدات.');
+    var text=msg();
+    if(CFG.endpoint){
+      say('جارٍ الإرسال...');
+      fetch(CFG.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({summary:text})})
+        .then(function(r){if(!r.ok)throw 0;say('تم استلام طلبك، سيتواصل معك فريق أطلس قريباً.','ok')})
+        .catch(function(){say('تعذّر الإرسال، حاول مرة أخرى أو تواصل معنا عبر واتساب.','err')});
+    } else {
+      window.open('https://wa.me/'+CFG.whatsapp+'?text='+encodeURIComponent(text),'_blank','noopener');
+      say('تم تجهيز رسالتك في واتساب، اضغط إرسال هناك لإتمام الطلب.','ok');
+    }
+  });
+
+  build();
+})();
+</script>
+</div>
